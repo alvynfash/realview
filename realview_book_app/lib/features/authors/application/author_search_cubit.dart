@@ -9,10 +9,19 @@ class AuthorSearchCubit extends Cubit<AuthorSearchState> {
 
   AuthorRepository authorRepository;
 
+  /// The searchAuthors function is used to search for authors based on a given query.
+  /// It returns a list of authors that match the query ordered by the number of works they have.
+  ///
+  /// Args:
+  ///   query (String): The query parameter is a string that represents the search query for authors. It
+  /// is used to search for authors based on specific criteria or keywords.
   void searchAuthors(String query) {
     emit(AuthorSearchLoading());
     authorRepository.searchAuthors(query).then((docs) {
-      final authors = docs.map((e) => Author.fromDataModel(e)).toList();
+      final authors = docs.map((e) => Author.fromDataModel(e)).toList()
+        ..sort(
+          (a, b) => b.workCount.compareTo(a.workCount),
+        );
       emit(AuthorSearchSuccess(authors));
     }).catchError((error) {
       emit(const AuthorSearchError('Oops, Something went wrong'));
