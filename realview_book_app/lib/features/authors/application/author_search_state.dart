@@ -1,3 +1,5 @@
+/// The above code defines different states for an author search feature, including initial, loading,
+/// success, and error states.
 part of 'author_search_cubit.dart';
 
 abstract class AuthorSearchState extends Equatable {

@@ -24,7 +24,7 @@ class AuthorSearchScreen extends StatelessWidget {
         ),
         body: BlocConsumer<AuthorSearchCubit, AuthorSearchState>(
           listener: (context, state) {
-            // TODO: implement listener
+            // TODO: listen for error state and possible show toast here.
           },
           builder: (context, state) {
             return Padding(

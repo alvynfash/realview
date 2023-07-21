@@ -3,9 +3,14 @@ import 'package:realview_book_app/features/authors/data/data_sources/doc_respons
 import 'dart:convert';
 import 'package:realview_book_app/features/authors/data/models/doc_data_model.dart';
 
+/// The RemoteDataSource class is a data source for remote data retrieval.
 class RemoteDataSource {
   final String baseUrl = 'https://openlibrary.org';
 
+  /// The function searches for authors based on a given query.
+  ///
+  /// Args:
+  ///   query (String): A string representing the search query for authors.
   Future<List<Doc>> searchAuthors(String query) async {
     try {
       final response =
@@ -24,6 +29,10 @@ class RemoteDataSource {
     }
   }
 
+  /// The function `getAuthorDetails` retrieves the details of an author based on their ID.
+  ///
+  /// Args:
+  ///   authorId (String): The author's unique identifier.
   Future<Doc?> getAuthorDetails(String authorId) async {
     // final response = await http.get(Uri.parse('$baseUrl/authors/$authorId.json'));
     // if (response.statusCode == 200) {
