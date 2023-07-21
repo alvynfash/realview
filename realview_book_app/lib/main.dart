@@ -104,7 +104,7 @@ class HomeScreen extends StatelessWidget {
       case 'Author Finder':
         return const AuthorSearchScreen();
       default:
-        return const FeatureNotAvailable(featureName: 'Feature not available');
+        return FeatureNotAvailable(featureName: featureName);
     }
   }
 }
