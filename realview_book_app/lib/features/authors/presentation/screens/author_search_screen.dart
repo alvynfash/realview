@@ -20,7 +20,7 @@ class AuthorSearchScreen extends StatelessWidget {
       ),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Real View Author Finder'),
+          title: const Text('Author Finder'),
         ),
         body: BlocConsumer<AuthorSearchCubit, AuthorSearchState>(
           listener: (context, state) {
